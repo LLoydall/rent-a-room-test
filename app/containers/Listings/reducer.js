@@ -5,14 +5,21 @@
  */
 
 import { fromJS } from 'immutable';
-import { DEFAULT_ACTION } from './constants';
+import { LOAD_LISTINGS } from './constants';
 
-export const initialState = fromJS({});
+export const initialState = fromJS({
+  loading: false,
+  error: false,
+  listings: [],
+});
 
 function listingsReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case LOAD_LISTINGS:
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .set('listings', []);
     default:
       return state;
   }
