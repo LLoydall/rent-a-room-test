@@ -4,10 +4,10 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { LOAD_LISTINGS } from './constants';
 
-export function defaultAction() {
+export function loadListings() {
   return {
-    type: DEFAULT_ACTION,
+    type: LOAD_LISTINGS,
   };
 }

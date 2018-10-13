@@ -10,15 +10,16 @@ describe('Listings Page', () => {
     expect(renderedComponent.find('h1').exists()).toBe(true);
   });
 
-  it('Should show a series of listings', () => {
-    const renderedComponent = shallow(<Listings />);
-    expect(renderedComponent.containsMatchingElement(<Teaser />)).toBe(true);
-  });
+  // it('Should show a series of listings', () => {
+  //   const renderedComponent = shallow(<Listings />);
+  //   expect(renderedComponent.containsMatchingElement(<Teaser />)).toBe(true);
+  // });
 
   it("Should show a series of listings which link to a listing page or 'No Listings' text", () => {
     const renderedComponent = shallow(<Listings />);
     expect(
-      renderedComponent.find('[to^="/listing/"]').exists() ||
+      (renderedComponent.containsMatchingElement(<Teaser />) &&
+        renderedComponent.find('[to^="/listing/"]').exists()) ||
         renderedComponent.text().to.equal('No Listings'),
     ).toBe(true);
   });

@@ -18,9 +18,13 @@ import makeSelectListings from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import Teaser from '../../components/Teaser';
+import loadListings from './actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Listings extends React.Component {
+  initialize() {
+    loadListings();
+  }
   render() {
     const { loading, error, listings } = this.props;
     return (
