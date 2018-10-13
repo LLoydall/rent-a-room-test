@@ -41,16 +41,20 @@ export class Listings extends React.Component {
           <Heading textAlign="center">Listings</Heading>
         </Box>
         <Box width={1}>
-          {(() => {
-            if (loading) {
-              return 'Finding Listings';
-            } else if (error) {
-              return 'Something went wrong';
-            } else if (listings.length) {
-              return listings.map(listing => <Teaser {...listing} />);
-            }
-            return 'No listings';
-          })()}
+          <Flex>
+            {(() => {
+              if (loading) {
+                return 'Finding Listings';
+              } else if (error) {
+                return 'Something went wrong';
+              } else if (listings.length) {
+                return listings.map(listing => (
+                  <Teaser key={Math.random()} {...listing} />
+                ));
+              }
+              return 'No listings';
+            })()}
+          </Flex>
         </Box>
       </Flex>
     );
