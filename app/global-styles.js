@@ -1,5 +1,5 @@
 import { injectGlobal } from 'styled-components';
-
+import './fonts/global-fonts';
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html,
@@ -11,12 +11,12 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Museo Sans', Helvetica, Arial, sans-serif;
   }
 
-  body.fontLoaded {
+  /* body.fontLoaded {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
+  } */
 
   #app {
     background-color: #fafafa;
@@ -26,7 +26,7 @@ injectGlobal`
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 14pt;
     line-height: 1.5em;
   }
 `;
