@@ -14,16 +14,20 @@ import { Heading, Flex, Box } from 'rebass';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectListings from './selectors';
+import {
+  makeSelectListings,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import Teaser from '../../components/Teaser';
-import loadListings from './actions';
+import { loadListings } from './actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Listings extends React.Component {
-  initialize() {
-    loadListings();
+  componentDidMount() {
+    this.props.loadListings();
   }
   render() {
     const { loading, error, listings } = this.props;
@@ -54,19 +58,21 @@ export class Listings extends React.Component {
 }
 
 Listings.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   error: PropTypes.any,
   listings: PropTypes.any,
+  loadListings: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   listings: makeSelectListings(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    loadListings: () => dispatch(loadListings()),
   };
 }
 

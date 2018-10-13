@@ -16,7 +16,18 @@ const selectListingsDomain = state => state.get('listings', initialState);
  */
 
 const makeSelectListings = () =>
-  createSelector(selectListingsDomain, substate => substate.toJS());
+  createSelector(selectListingsDomain, substate => substate.get('listings'));
+
+const makeSelectLoading = () =>
+  createSelector(selectListingsDomain, substate => substate.get('loading'));
+
+const makeSelectError = () =>
+  createSelector(selectListingsDomain, substate => substate.get('error'));
 
 export default makeSelectListings;
-export { selectListingsDomain };
+export {
+  selectListingsDomain,
+  makeSelectListings,
+  makeSelectLoading,
+  makeSelectError,
+};

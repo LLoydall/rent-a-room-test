@@ -1,6 +1,6 @@
 import request from 'utils/request';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { LOAD_LISTINGS } from 'containers/App/constants';
+import { LOAD_LISTINGS } from './constants';
 import { listingsLoaded, listingsLoadingError } from './actions';
 
 export function* getListings() {
