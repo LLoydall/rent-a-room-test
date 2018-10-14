@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import 'sanitize.css/sanitize.css';
+import { ThemeProvider } from 'styled-components';
 
 // Import root app
 import App from 'containers/App';
@@ -36,6 +37,21 @@ import { translationMessages } from './i18n';
 // Import CSS reset and Global Styles
 import './global-styles';
 
+const salmon = '#ED6E67';
+const blackish = '#181818';
+
+const theme = {
+  fontSizes: [12, 14, 16, 24, 32, 48, 64],
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
+  colors: {
+    salmon,
+    blackish,
+  },
+  shadows: {
+    small: '0 2px 5px rgba(0, 0, 0, .25)',
+    large: '0 2px 25px rgba(0, 0, 0, .25)',
+  },
+};
 // Create redux store with history
 const initialState = {};
 const history = createHistory();
@@ -47,7 +63,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

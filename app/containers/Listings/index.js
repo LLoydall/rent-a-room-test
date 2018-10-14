@@ -37,11 +37,11 @@ export class Listings extends React.Component {
           <title>Listings</title>
           <meta name="description" content="Description of Listings" />
         </Helmet>
-        <Box width={1}>
+        <Box width={1} py={4}>
           <Heading textAlign="center">Listings</Heading>
         </Box>
         <Box width={1}>
-          <Flex>
+          <Flex flexWrap="wrap" justifyContent="center">
             {(() => {
               if (loading) {
                 return 'Finding Listings';

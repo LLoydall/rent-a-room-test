@@ -9,7 +9,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { compose } from 'redux';
-
+import { Heading } from 'rebass';
 /* eslint-disable react/prefer-stateless-function */
 export class Listing extends React.Component {
   render() {
@@ -19,6 +19,10 @@ export class Listing extends React.Component {
           <title>Listing</title>
           <meta name="description" content="Description of Listing" />
         </Helmet>
+        <Heading>Listing</Heading>
+        <a href="/">
+          <Heading fontSize={16}>Back</Heading>
+        </a>
       </div>
     );
   }

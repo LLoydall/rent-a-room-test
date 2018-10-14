@@ -17,6 +17,7 @@ import { Switch, Route } from 'react-router-dom';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Listings from 'containers/Listings/Loadable';
 import Listing from 'containers/Listing/index';
+import Profile from 'containers/Profile/index';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Listings} />
         <Route exact path="/listing/:id" component={Listing} />
+        <Route exact path="/profile/:id" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
